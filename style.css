@@ -2,34 +2,53 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
 }
 
 :root {
-  --bg: #f7f9fc;
-  --white: #ffffff;
-  --dark: #172033;
-  --text: #5b6475;
-  --primary: #6c63ff;
-  --secondary: #8ec5fc;
-  --soft: #eef3ff;
-  --border: #e3e8f3;
+  --bg-darker: #090a0f;
+  --bg-card: #131622;
+  --bg-input: #1a1e30;
+  --text-main: #e2e8f0;
+  --text-muted: #94a3b8;
+
+  /* Colores Neón Videojuego */
+  --neon-purple: #a855f7;
+  --neon-cyan: #06b6d4;
+  --neon-green: #22c55e;
+
+  /* Bordes Pixelados Estilo Retro */
+  --pixel-border: 3px solid #1e293b;
 }
 
 body {
-  background: var(--bg);
-  color: var(--dark);
+  background-color: var(--bg-darker);
+  color: var(--text-main);
+  font-family:
+    "Share Tech Mono", monospace; /* Letra estilo consola/tecnología */
+  font-size: 18px;
+  overflow-x: hidden;
 }
 
+/* Tipografía de títulos pixelados */
+h1,
+h2,
+h3,
+.btn,
+.tag,
+nav a,
+.subtitle {
+  font-family: "Press Start 2P", cursive;
+  line-height: 1.4;
+}
+
+/* Navbar */
 .header {
-  width: 92%;
-  margin: 18px auto;
-  padding: 14px 28px;
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--border);
-  border-radius: 25px;
-  box-shadow: 0 15px 40px rgba(108,99,255,0.08);
+  width: 94%;
+  margin: 15px auto;
+  padding: 15px 25px;
+  background: rgba(19, 22, 34, 0.9);
+  border: var(--pixel-border);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.15);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -44,268 +63,346 @@ body {
   gap: 12px;
 }
 
-.brand img {
-  width: 45px;
-  height: 45px;
-  border-radius: 14px;
-  object-fit: cover;
+.brand h3 {
+  font-size: 14px;
+  color: var(--neon-cyan);
 }
 
-.brand h3 {
-  font-size: 20px;
+.pixel-avatar-mini {
+  font-size: 24px;
 }
 
 nav a {
-  margin-left: 22px;
+  font-size: 11px;
   text-decoration: none;
-  color: var(--text);
-  font-weight: 600;
+  color: var(--text-muted);
+  margin-left: 15px;
+  transition: color 0.2s;
 }
 
 nav a:hover {
-  color: var(--primary);
+  color: var(--neon-purple);
+  text-shadow: 0 0 8px var(--neon-purple);
 }
 
+/* Sección de Bienvenida (Hero) */
 .hero {
-  min-height: 85vh;
-  width: 92%;
-  margin: auto;
-  padding: 70px 6%;
+  min-height: 80vh;
+  width: 94%;
+  margin: 20px auto;
+  padding: 50px 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 45px;
-  background: linear-gradient(135deg, #ffffff, #eef3ff);
-  border-radius: 35px;
-  border: 1px solid var(--border);
+  gap: 40px;
+  background: var(--bg-card);
+  border: var(--pixel-border);
+  position: relative;
 }
 
-.hero-info {
-  max-width: 620px;
-}
-
-.tag,
-.subtitle {
+.tag {
+  font-size: 11px;
+  color: var(--neon-green);
+  margin-bottom: 20px;
   display: inline-block;
-  background: #edf0ff;
-  color: var(--primary);
-  padding: 9px 18px;
-  border-radius: 30px;
-  font-weight: 700;
-  font-size: 14px;
-  margin-bottom: 18px;
 }
 
 .hero h1 {
-  font-size: 54px;
-  line-height: 1.1;
-  margin-bottom: 22px;
+  font-size: 32px;
+  color: var(--text-main);
 }
 
 .hero h1 span {
-  color: var(--primary);
+  color: var(--neon-purple);
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
+
+.sub-pixel {
+  font-size: 20px;
+  color: var(--neon-cyan);
+  margin-top: 5px;
+  margin-bottom: 25px;
 }
 
 .hero p {
+  color: var(--text-muted);
   font-size: 18px;
-  color: var(--text);
-  line-height: 1.8;
+  line-height: 1.6;
+  max-width: 550px;
   margin-bottom: 30px;
 }
 
+/* Botones */
 .hero-buttons {
   display: flex;
-  gap: 15px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
-.btn,
-.btn-outline {
-  display: inline-block;
-  padding: 14px 28px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 700;
-  transition: 0.3s;
-}
-
 .btn {
-  background: var(--primary);
-  color: white;
-  box-shadow: 0 12px 25px rgba(108,99,255,0.25);
+  font-size: 11px;
+  padding: 15px 25px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;
 }
 
-.btn:hover {
-  transform: translateY(-4px);
+.btn-primary {
+  background: var(--neon-purple);
+  color: #fff;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0px #000;
+}
+
+.btn-primary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #000;
+  background: #b566ff;
 }
 
 .btn-outline {
-  border: 2px solid var(--primary);
-  color: var(--primary);
-  background: white;
+  background: transparent;
+  color: var(--neon-cyan);
+  border: 3px solid var(--neon-cyan);
+  box-shadow: 4px 4px 0px rgba(6, 182, 212, 0.2);
 }
 
+.btn-outline:hover {
+  background: rgba(6, 182, 212, 0.1);
+  color: #fff;
+}
+
+/* Tarjeta lateral de Perfil */
 .profile-card {
-  background: white;
-  padding: 30px;
-  border-radius: 35px;
+  background: var(--bg-darker);
+  padding: 25px;
+  border: var(--pixel-border);
   text-align: center;
-  border: 1px solid var(--border);
-  box-shadow: 0 20px 50px rgba(23,32,51,0.08);
-  width: 330px;
+  width: 320px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-.profile-card img {
-  width: 220px;
-  height: 220px;
+.profile-img-container {
+  width: 100%;
+  height: 200px;
+  background: var(--bg-input);
+  border: 3px solid #1e293b;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-img-container img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 30px;
-  margin-bottom: 20px;
-  background: #e9eef8;
+}
+
+.pixel-placeholder {
+  font-size: 60px;
 }
 
 .profile-card h2 {
-  font-size: 25px;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
-.profile-card p {
-  color: var(--primary);
-  font-weight: 700;
-  margin: 8px 0;
+.profile-card .role {
+  font-size: 11px;
+  color: var(--neon-green);
+  margin-bottom: 12px;
+}
+
+.stats-bar {
+  width: 100%;
+  height: 12px;
+  background: #1e293b;
+  border: 2px solid #000;
+  margin-bottom: 10px;
+}
+
+.bar-fill.web {
+  width: 85%;
+  height: 100%;
+  background: var(--neon-green);
 }
 
 .profile-card small {
-  color: var(--text);
+  color: var(--text-muted);
+  font-size: 14px;
 }
 
+/* Secciones Generales */
 .section {
-  width: 92%;
-  margin: 40px auto;
-  padding: 70px 6%;
-  text-align: center;
-  background: white;
-  border-radius: 35px;
-  border: 1px solid var(--border);
+  width: 94%;
+  margin: 30px auto;
+  padding: 60px 5%;
+  background: var(--bg-card);
+  border: var(--pixel-border);
 }
 
-.section h2,
-.contact h2 {
-  font-size: 38px;
-  margin-bottom: 20px;
+.subtitle {
+  font-size: 11px;
+  color: var(--neon-cyan);
+  display: block;
+  margin-bottom: 15px;
 }
 
-.section p {
-  max-width: 850px;
-  margin: 12px auto;
-  color: var(--text);
-  line-height: 1.8;
-  font-size: 17px;
+.section h2 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  text-align: left;
+  border-bottom: 3px solid #1e293b;
+  padding-bottom: 15px;
 }
 
-.soft {
-  background: #f0f4ff;
+.pixel-box {
+  background: var(--bg-darker);
+  padding: 25px;
+  border: 2px dashed #334155;
+  text-align: left;
 }
 
+.pixel-box p {
+  margin-bottom: 15px;
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+.pixel-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* Cuadrícula de Habilidades (con soporte de Logos de Devicon) */
 .skills-grid {
-  margin-top: 30px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
 }
 
 .skill {
-  background: white;
-  padding: 16px;
-  border-radius: 18px;
-  border: 1px solid var(--border);
-  color: var(--dark);
-  font-weight: 700;
-  box-shadow: 0 10px 25px rgba(23,32,51,0.05);
+  background: var(--bg-darker);
+  border: var(--pixel-border);
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: transform 0.2s;
 }
 
+.skill:hover {
+  transform: scale(1.03);
+  border-color: var(--neon-purple);
+}
+
+.skill i {
+  font-size: 24px; /* Tamaño del icono del lenguaje */
+}
+
+/* Tarjetas de Misiones/Servicios */
 .cards {
-  margin-top: 35px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 22px;
+  gap: 20px;
 }
 
 .card {
-  padding: 32px;
-  background: #ffffff;
-  border-radius: 28px;
-  border: 1px solid var(--border);
-  box-shadow: 0 15px 35px rgba(23,32,51,0.06);
-  transition: 0.3s;
+  background: var(--bg-darker);
+  border: var(--pixel-border);
+  padding: 30px;
+  text-align: left;
+  transition: all 0.2s;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 50px rgba(108,99,255,0.14);
+  border-color: var(--neon-cyan);
+  transform: translateY(-4px);
+}
+
+.card-icon {
+  font-size: 32px;
+  margin-bottom: 15px;
 }
 
 .card h3 {
-  color: var(--primary);
-  margin-bottom: 14px;
-  font-size: 22px;
+  font-size: 14px;
+  color: var(--neon-cyan);
+  margin-bottom: 12px;
 }
 
 .card p {
-  color: var(--text);
-  line-height: 1.7;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.6;
 }
 
+/* Sección Contacto */
 .contact {
-  width: 92%;
-  margin: 40px auto;
-  padding: 70px 6%;
+  width: 94%;
+  margin: 30px auto;
+  padding: 60px 5%;
+  background: #111420;
+  border: var(--pixel-border);
   text-align: center;
-  background: linear-gradient(135deg, #eaf1ff, #ffffff);
-  border-radius: 35px;
-  border: 1px solid var(--border);
 }
 
-.contact-box p {
-  color: var(--text);
+.contact h2 {
+  font-size: 24px;
+  color: var(--neon-purple);
+  margin-bottom: 15px;
+}
+
+.contact p {
+  color: var(--text-muted);
   margin-bottom: 25px;
 }
 
 .email {
-  display: inline-block;
-  color: var(--primary);
-  font-weight: 800;
+  font-family: "Press Start 2P", cursive;
+  font-size: 12px;
+  color: var(--neon-cyan);
   text-decoration: none;
-  margin-bottom: 25px;
+  word-break: break-all;
 }
 
+.email:hover {
+  text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+/* Footer */
 footer {
   text-align: center;
-  color: var(--text);
   padding: 30px;
+  color: #475569;
+  font-size: 14px;
 }
 
+/* Responsivo para móviles */
 @media (max-width: 900px) {
   .header {
     flex-direction: column;
-    gap: 18px;
-  }
-
-  nav {
+    gap: 15px;
     text-align: center;
   }
 
   nav a {
     display: inline-block;
-    margin: 8px;
+    margin: 5px 10px;
   }
 
   .hero {
     flex-direction: column;
     text-align: center;
+    padding: 30px 15px;
   }
 
-  .hero h1 {
-    font-size: 38px;
+  .hero p {
+    text-align: center;
   }
 
   .hero-buttons {
@@ -314,5 +411,9 @@ footer {
 
   .profile-card {
     width: 100%;
+  }
+
+  .section h2 {
+    font-size: 18px;
   }
 }
